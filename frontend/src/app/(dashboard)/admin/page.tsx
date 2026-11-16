@@ -4,14 +4,14 @@ import {
   DashboardHeaderTitle,
   DashboardMain,
 } from "@/components/dashboard/dashboard-items";
-import { LuHouse } from "react-icons/lu";
+import { LuHome } from "react-icons/lu";
 
 export default function Page() {
   return (
     <>
       <DashboardHeader>
         <DashboardHeaderTitle>
-          <LuHouse />
+          <LuHome />
           Home
         </DashboardHeaderTitle>
         <DashboardHeaderDescription>
