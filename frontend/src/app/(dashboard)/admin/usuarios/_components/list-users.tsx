@@ -14,7 +14,7 @@ import { api } from "@/services/api";
 import { paginationResponseType } from "@/types/pagination-response";
 import { userType } from "@/types/user";
 import { Button } from "@/components/button";
-import { LuInfo, LuPen, LuCirclePlus, LuTrash } from "react-icons/lu";
+import { LuInfo, LuPen, LuTrash, LuPlusCircle } from "react-icons/lu";
 import { DialogUpdateUser } from "./dialog-update-user";
 import { DialogUserDelete } from "./dialog-delete-user";
 import { DialogInformationUser } from "./dialog-information-user";
@@ -64,7 +64,7 @@ export default async function ListUsers({
         <FilterUsers name={name} email={email} />
         <DialogCreateUser>
           <Button size="sm">
-            <LuCirclePlus />
+            <LuPlusCircle />
             Novo usuário
           </Button>
         </DialogCreateUser>

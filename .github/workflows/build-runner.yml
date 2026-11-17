@@ -1,0 +1,34 @@
+name: Build Runner
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]  
+    # Gatilho: roda quando um PR é aberto, reaberto ou recebe novos commits (synchronize)
+
+jobs:
+  branch_build:
+    runs-on: ubuntu-latest  
+    # Define o ambiente de execução como Ubuntu
+
+    steps:
+      - uses: actions/checkout@v3  
+      # Faz checkout do código do repositório para a runner
+
+      - name: Configurando Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22  
+          # Define a versão do Node.js para a execução do workflow
+
+      - name: Instalando pnpm manualmente
+        run: npm install -g pnpm@10.17.1  
+        # Instala pnpm globalmente com a versão 10.17.1, garantindo compatibilidade com o projeto
+
+      - name: Instalando dependências e rodando build
+        run: |
+          cd frontend  # Acessa a pasta frontend do projeto
+          pnpm install --frozen-lockfile  
+          # Instala todas as dependências conforme o lockfile, garantindo consistência
+          pnpm build  
+          # Executa o build da aplicação Next.js para validar que o código está compilando corretamente
+
